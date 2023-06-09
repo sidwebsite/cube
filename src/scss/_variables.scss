@@ -1,0 +1,82 @@
+// color
+$primary: #26A862;
+$green: #72C361;
+$secondary: #707070;
+$white: #fff;
+$black: #000;
+$dark: #333;
+$lightgray: #C1C1C1;
+$light: #FAFAFA;
+$horizontal-line: #E8E8E8;
+
+$gray-100: #F0F0F0 !default;
+$gray-200: #DDDDDD !default;
+$gray-300: #CCCCCC !default;
+$gray-400: #AAAAAA !default;
+$gray-500: #999999 !default;
+$gray-600: #888888 !default;
+$gray-700: #555555 !default;
+$gray-800: #333333 !default;
+$gray-900: #0D0D0D !default;
+// Gradient  color
+$primary-gradient: linear-gradient(90deg, #00994E, #1C89C4, #676ED5);
+$primary-gradient-vertical: linear-gradient(#00994E, #1C89C4, #676ED5);
+$footer-gradient: linear-gradient(90deg,#72C361, #4FB980);
+$footer-gradient-vertical: linear-gradient(#72C361, #4FB980);
+
+// size
+$base-font-size: 16px;
+$font-size-base: 1rem;
+
+$h1-font-size: $font-size-base * 2.5;
+$h2-font-size: $font-size-base * 2;
+$h3-font-size: $font-size-base * 1.75;
+$h4-font-size: $font-size-base * 1.5;
+$h5-font-size: $font-size-base * 1.25;
+$h6-font-size: $font-size-base;
+// font
+$font-weight-lighter: 300;
+$font-weight-light: 400;
+$font-weight-normal: 500;
+$font-weight-bold: 700;
+$font-weight-bolder: 600;
+// line height
+$line-height-base: 1.5;
+$line-height-sm: 1.25;
+$line-height-md: 1.75;
+$line-height-lg: 2;
+$line-height-xl: 3;
+// grid
+$grid-columns: 12;
+$grid-gutter-width: 0.75rem;
+// container
+$container-max-width: 1140px;
+$container-max-widths: (
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1140px,
+	xxl: 1320px
+);
+// breakpoints
+$grid-breakpoints: (
+	'': false,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1400px
+);
+// spacies
+$size-base: 1rem;
+$spacies: (
+	0: 0,
+	1: $size-base * .25,
+	2: $size-base * .5,
+	3: $size-base,
+	4: $size-base * 1.5,
+	5: $size-base * 3,
+	auto: auto,
+);
+$property: 'm', 'p';
+$sides: '', 't', 'b', 'l', 'r', 'x', 'y';

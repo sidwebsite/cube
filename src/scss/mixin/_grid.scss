@@ -1,0 +1,8 @@
+@mixin col {
+	position: relative;
+	width: 100%;
+	padding: {
+		left: $grid-gutter-width;
+		right: $grid-gutter-width;
+	};
+}
