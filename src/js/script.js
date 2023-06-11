@@ -1,19 +1,22 @@
 import lazyLoadInit from "./lazyload-init";
 lazyLoadInit();
 // loading
+const lazyLoading = () => {
+        const loader = document.querySelector("#loading");    
+        loader.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+}
 window.addEventListener('load', function() {    
-    const loader = document.querySelector("#loading");    
-    loader.classList.add('hidden');
-    this.document.body.classList.remove('overflow-hidden');
-    
-});
+    setTimeout(lazyLoading, 3500);
+}); 
 // init
 import wow from 'wow.js'; 
 new wow().init();
 // dropdown-toggle
 const dropdownToggle = document.querySelector(".dropdown-toggle");
 const dropdownMenu = document.querySelector('.dropdown-menu');
-dropdownToggle.addEventListener("click", () => {    
+dropdownToggle.addEventListener("click", (e) => {    
+    e.preventDefault();
     dropdownMenu.classList.add("show");
     dropdownToggle.classList.toggle("active");
     if(dropdownToggle.classList.contains('active')) {
@@ -21,12 +24,13 @@ dropdownToggle.addEventListener("click", () => {
     } else {
         dropdownMenu.classList.remove("show");
         dropdownToggle.textContent = 'menu';
-    }
-    
+    }    
 });
 document.body.addEventListener("click", (e) => {
-    if (e.target.matches(".dropdown-toggle") === false) {
-        dropdownMenu.classList.remove("show");
+    if (e.target.matches(".dropdown-toggle") === false) {    
+        dropdownToggle.classList.remove("active");
+        dropdownToggle.textContent = 'menu';    
+        dropdownMenu.classList.remove("show");        
     }
 });
 // dropdownMenu.querySelectorAll('a')[1].addEventListener {
@@ -36,24 +40,52 @@ document.body.addEventListener("click", (e) => {
 const backToTopButton = document.querySelector('#gotop');
 // header scroll
 const header = document.querySelector('.header');
+// nav
+const sectionId = document.querySelectorAll('.section-id');
+const navLinks = document.querySelectorAll('.dropdown-menu li');
 // serve
 const serve = document.querySelector('#serve');
 const tabNavs = document.querySelectorAll('.tab-nav ul li');
 const tabContents = document.querySelectorAll('.tab-content .tab-pane');
-const tabContainer = document.querySelector('.tab-container');
-
+const tabLeftNav = document.querySelector('.tab-left-nav');
 function scrollFunction() {
-    // 
-    const tabsNav = document.querySelector('#tabs .tab-nav');
-    // console.log(document.documentElement.scrollTop)
+    let top = document.documentElement.scrollTop;
+    // nav
+    sectionId.forEach((sec) => {
+        let offset = sec.offsetTop;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+
+        if(window.scrollY >= offset && window.scrollY < offset + height){
+            navLinks.forEach((links) => {
+                links.querySelector('a').classList.remove('active');
+                document.querySelector('.dropdown-menu li a[href*='+ id + ']').classList.add('active');
+            })
+        }
+    })
     //  header scroll
-    // if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    //     header.classList.add('fixed');
-    // } else {
-    //     header.classList.remove('fixed');
-    // };
+    if (document.body.scrollTop > 20 || top > 20) {
+        header.classList.add('fixed');
+    } else {
+        header.classList.remove('fixed');
+    };
+    // 
+    let serveOffset = serve.offsetTop;
+    let serveHeight = serve.offsetHeight;
+    if(window.innerWidth > 997) {
+        tabLeftNav.style.right = (window.innerWidth - document.querySelector('.tab-content').clientWidth) - 540 + 'px';
+    } else {
+        tabLeftNav.style.right = (window.innerWidth - document.querySelector('.tab-content').clientWidth) / 2 + 'px';
+    }
+    // console.log(offset, height, window.scrollY)
+    if(window.scrollY >= (serveOffset + 200) && window.scrollY < serveOffset + serveHeight - 600){
+
+        tabLeftNav.classList.add('active');
+    } else {
+        tabLeftNav.classList.remove('active');
+    }
     // go top 
-    if(document.documentElement.scrollTop > 300) {        
+    if(top > 300) {        
         // show backToTopButton
         if(!backToTopButton.classList.contains('btnEntrance')){
             backToTopButton.classList.remove('btnExit')
@@ -70,22 +102,6 @@ function scrollFunction() {
             }, 250);            
         };
     };
-    // serve
-    // console.log(serve.offsetTop )
-    // if(serve.offsetTop === document.documentElement.scrollTop) {
-    //     tabContainer.addEventListener('scroll', () => {
-    //         console.log(tabContainer.scrollTop);
-    //     })
-        
-    // }
-    // const serveHeight = (serve.offsetTop + serve.clientHeight) - tabsNav.clientHeight - 270;
-    // if(document.documentElement.scrollTop > serve.offsetTop && document.documentElement.scrollTop < serveHeight) {
-    //     tabsNav.classList.add('server-nav-fixed');
-    //     tabsNav.style.top = "0";
-    // } else {
-    //     tabsNav.classList.remove('server-nav-fixed');
-    //     tabsNav.style.top = "-100%";
-    // }
 }
 window.addEventListener('scroll', scrollFunction);
 // tabs
@@ -97,12 +113,30 @@ tabNavs.forEach((tab, index) => {
         tabNavs.forEach((tab) => {
             tab.classList.remove('active');
         });
+        tabLeftNav.querySelectorAll('a').forEach((tab) => {
+            tab.classList.remove('active');
+        });
         tabContents[index].classList.add('active', 'show');
         tabNavs[index].classList.add('active');
-        // console.log(tabContents[index].clientHeight);
-        
+        tabLeftNav.querySelectorAll('a')[index].classList.add('active');    
     });
 });
+tabLeftNav.querySelectorAll('a').forEach((nav,index) => {
+    nav.addEventListener('click',() => {
+        tabContents.forEach((content) => {
+            content.classList.remove('active', 'show');
+        });
+        tabNavs.forEach((tab) => {
+            tab.classList.remove('active');
+        });
+        tabLeftNav.querySelectorAll('a').forEach((tab) => {
+            tab.classList.remove('active');
+        });
+        tabContents[index].classList.add('active', 'show');
+        tabNavs[index].classList.add('active');
+        tabLeftNav.querySelectorAll('a')[index].classList.add('active');    
+    })
+})
 // accordion
 const accordionContent = document.querySelectorAll(".accordion-item");
 accordionContent.forEach((item, index) => {
@@ -167,30 +201,31 @@ modalBtn.forEach(btn => {
 
 // 
 const container = document.querySelector('.banner-box');
-for(let i = 0; i <= 100; i++ ) {
-	const blocks = document.createElement('div');
-	blocks.classList.add('block');
-	container.appendChild(blocks);
+const h = container.clientHeight;
+const w = container.clientWidth;
+
+console.log(window.innerWidth);
+if(window.innerWidth > 2000) {
+    for(let i = 0; i <= 8; i++ ) {
+        const blocks = document.createElement('div');
+        blocks.classList.add('block');
+        // blocks.style.top = Math.floor(Math.random() * h)+ 'px';
+        blocks.style.left = Math.floor(Math.random() * 2000) + 'px';
+        blocks.style.width = (Math.floor(Math.random() * 50) + 30) + 'px';
+        blocks.style.height = (Math.floor(Math.random() * 700) + 200) + 'px';
+        container.appendChild(blocks);    
+    }
+} else {
+    for(let i = 0; i <= 10; i++ ) {
+        const blocks = document.createElement('div');
+        blocks.classList.add('block');
+        // blocks.style.top = Math.floor(Math.random() * h)+ 'px';
+        blocks.style.left = Math.floor(Math.random() * 3000) + 'px';
+        blocks.style.width = (Math.floor(Math.random() * 50) + 30) + 'px';
+        blocks.style.height = (Math.floor(Math.random() * 700) + 200) + 'px';
+        container.appendChild(blocks);    
+    }
 }
-function animateBlocks() {
-	anime({
-	    targets: '.block',
-		translateX: function(){
-			return anime.random(-container.clientWidth, container.clientWidth)
-		},		
-        translateY: function(){
-			return anime.random(-container.clientHeight, container.clientHeight)
-		},
-        scale: function(){
-			return anime.random(1,5)
-		},
-		easing: 'linear',
-		duration: 6000,
-		delay: anime.stagger(10),
-		complete: animateBlocks
-	});
-}
-animateBlocks();
 
 // Swiper
 import Swiper from 'swiper/bundle';

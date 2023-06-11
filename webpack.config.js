@@ -33,7 +33,7 @@ module.exports = {
                 type: 'asset/inline',
             },
             {
-                test: /\.(png|jpe?g|gif|webp|svg)$/i,
+                test: /\.(png|jpe?g|gif|webp|svg|ico)$/i,
                 type: 'asset',
                 generator: {
                     filename: 'images/[name][ext]'
