@@ -1,16 +1,37 @@
+import lazyLoadInit from "./lazyload-init";
+lazyLoadInit();
+// loading
+window.addEventListener('load', function() {    
+    const loader = document.querySelector("#loading");    
+    loader.classList.add('hidden');
+    this.document.body.classList.remove('overflow-hidden');
+    
+});
 // init
-new WOW().init();
+import wow from 'wow.js'; 
+new wow().init();
 // dropdown-toggle
 const dropdownToggle = document.querySelector(".dropdown-toggle");
 const dropdownMenu = document.querySelector('.dropdown-menu');
-dropdownToggle.addEventListener("click", () => {
+dropdownToggle.addEventListener("click", () => {    
     dropdownMenu.classList.add("show");
+    dropdownToggle.classList.toggle("active");
+    if(dropdownToggle.classList.contains('active')) {
+        dropdownToggle.textContent = 'close';
+    } else {
+        dropdownMenu.classList.remove("show");
+        dropdownToggle.textContent = 'menu';
+    }
+    
 });
 document.body.addEventListener("click", (e) => {
     if (e.target.matches(".dropdown-toggle") === false) {
         dropdownMenu.classList.remove("show");
     }
 });
+// dropdownMenu.querySelectorAll('a')[1].addEventListener {
+
+// }
 // go top
 const backToTopButton = document.querySelector('#gotop');
 // header scroll
@@ -26,11 +47,11 @@ function scrollFunction() {
     const tabsNav = document.querySelector('#tabs .tab-nav');
     // console.log(document.documentElement.scrollTop)
     //  header scroll
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        header.classList.add('fixed');
-    } else {
-        header.classList.remove('fixed');
-    };
+    // if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    //     header.classList.add('fixed');
+    // } else {
+    //     header.classList.remove('fixed');
+    // };
     // go top 
     if(document.documentElement.scrollTop > 300) {        
         // show backToTopButton
@@ -112,23 +133,35 @@ function removeOpen(index1){
         }
     })
 }
-// 
+// modal
 const modalBtn = document.querySelectorAll('.modal-btn');
+const videoModal = document.querySelector('#videoModal');
+const youtube = document.querySelector('#youtube');
+
 const openModal = (id) => {
-    const modelId = document.querySelector(id);
-    const modalCloseBtn = modelId.querySelector('.modal-close-btn');
+    const autoplay = '?autoplay=1&amp;modestbranding=1&amp;showinfo=0';
+    const src = 'https://www.youtube.com/embed/'+ id + autoplay;
+    youtube.setAttribute('src', src);
+    const modalCloseBtn = videoModal.querySelector('.modal-close-btn');
     document.body.classList.add('modal-open');
-    modelId.classList.add('show');
+    videoModal.classList.add('show');
     modalCloseBtn.addEventListener('click', () => {
+        youtube.setAttribute('src', '');
         document.body.classList.remove('modal-open');
-        modelId.classList.remove('show');
+        videoModal.classList.remove('show');
+    });
+    videoModal.addEventListener('click', () => {
+        youtube.setAttribute('src', '');
+        document.body.classList.remove('modal-open');
+        videoModal.classList.remove('show');
     });
 }
-
 modalBtn.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        const id = e.target.dataset.target;
-        openModal(id);
+        e.preventDefault();
+        // const id = e.target.dataset.id;
+        let youtubeId = e.target.dataset.youtube;
+        openModal(youtubeId);
     })
 })
 
@@ -159,8 +192,10 @@ function animateBlocks() {
 }
 animateBlocks();
 
-// 
+// Swiper
+import Swiper from 'swiper/bundle';
 const swiper = new Swiper(".mySwiper", {
+    lazy: true,
     pagination: {
         el: ".swiper-pagination",
         clickable: true,

@@ -7,7 +7,7 @@ module.exports = {
     entry: './src/main.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: './javascript/main.js?[hash:8]',
+        filename: './js/main.js?[hash:8]',
     },
     module: {
         rules: [
@@ -29,27 +29,19 @@ module.exports = {
                 ],
             },
             {
+                test: /\.(svg|eot|woff|woff2|ttf)$/i,
+                type: 'asset/inline',
+            },
+            {
                 test: /\.(png|jpe?g|gif|webp|svg)$/i,
                 type: 'asset',
-                parser: {                    
-                    dataUrlCondition: {
-                        maxSize: 10 * 1024
-                    }
-                },
                 generator: {
                     filename: 'images/[name][ext]'
                 }
             },
             {
-                test: /\.html$/i,
-                loader: "html-loader",
-            },
-            {
-                test: /\.(mp3|mp4|avi)$/,
-                type: 'asset/resource',
-                generator: {
-                    filename: 'video/[hash:8][ext][query]'
-                }
+                test: /\.html$/,
+                loader: 'html-loader',
             }
         ]
     },

@@ -1,6 +1,43 @@
+// loading
+.overflow-hidden {
+    overflow: hidden;
+}
+.loading {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: $white;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+    .loading-logo {
+        width: 200px;
+        img {
+            width: 100%;
+        }
+    }
+    &.hidden {
+        display: none;
+        opacity: 0;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    } 100% {
+        opacity: 0;
+    }
+}
 // header
 .header {
-    position: relative;
+    width: 100%;
+    position: fixed;
     z-index: 100;
     // logo
     .logo {
@@ -13,16 +50,6 @@
     background-color: $white;
     box-shadow: 0 2px 6px rgba($black, 0.07);
     transition: height .3s ease-in;
-    &.fixed {
-        height: 0;
-        width: 100%;
-        position: fixed;
-        top: 0%;
-        left: 0;
-        right: 0;
-        z-index: 999;
-        animation: headerTop 0.3s linear forwards;
-    }
     // dropdown toggle
     .nav {
         .dropdown-toggle {
@@ -117,10 +144,10 @@ ul li {
     width: 100%;
     z-index: 10;
     padding: {
-        top: 70px;
+        top: 140px;
         // bottom: 70px;
     };
-    height: calc(100vh - 70px);
+    height: 100vh;
     .banner-content {
         width: 100%;
         height: 100%;
@@ -212,32 +239,20 @@ ul li {
         transition: .3s ease-in;
         font-size: 10rem;
         z-index: 10;
-
+        text-decoration: none;
         &:hover {
             background: $primary-gradient-vertical;
             background-clip: text;
             color: transparent;
             transition: .3s ease-in;
             opacity: 1;
-            & + figure {
-            overflow: hidden;
-            img {
-                transform: scale(1.2);
-            }
-        }     
         }
-        & + figure {
-            overflow: hidden;
-            img {
-                width: 100%;
-                transform: scale(1);
-                transition: .3s ease-in;
-            }
-        } 
     }
 }
 // introduction
 .introduction {
+    display: flex;
+    align-items: center;
     .introduction-img {
         text-align: center;
         max-width: 380px;
@@ -344,7 +359,7 @@ ul li {
                 left: 0;
                 opacity: 0;
                 transition: all .3s ease-in;
-                background-image: url(../images/digital-cube-mb.png);
+                background-image: url(../images/digital-cube-mb.webp);
                 background-position: top;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -407,7 +422,7 @@ ul li {
         left: 0;
         right: 30px;
         opacity: 0.5;
-        background-image: url(../images/digital-cube-mb.png);
+        background-image: url(../images/digital-cube-mb.webp);
         background-position: top;
         background-repeat: no-repeat;
         background-size: cover;
@@ -443,19 +458,12 @@ ul li {
                     width: 238px;
                     img {
                         width: 100%;
-                        transform: scale(1);
-                        transition: .3s ease-in;
-                    }
-                    &:hover {
-                        img {
-                            transform: scale(1.2);
-                        }
                     }
                 }
                 .more-warpper {
                     margin: {
-                        left: 45px;
-                        right: -60px;
+                        top: 30px;
+                        left: 30px;
                     };
                     position: relative;                    
                 }
@@ -534,20 +542,12 @@ ul li {
             left: 0;
             opacity: 1;
             transition: all .3s ease-in;
-            background-image: url(../images/digital-cube-mb.png);
+            background-image: url(../images/digital-cube-mb.webp);
             background-position: top;
             background-repeat: no-repeat;
             background-size: cover;
         }
         > .li-wrapper {
-            // > h3 {                
-            //     // > .icon {
-            //     //     background-color: transparent;
-            //     //     background-image: $footer-gradient-vertical;
-            //     //     background-clip: initial;
-            //     //     color: $white;
-            //     // }
-            // }
             > p {
                 display: none;
             }
@@ -590,7 +590,7 @@ ul li {
                 left: 0;
                 right: 30px;
                 opacity: 0.5;
-                background: $white url(../images/digital-cube-mb.png);
+                background: $white url(../images/digital-cube-mb.webp);
                 background-position: top;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -610,14 +610,13 @@ ul li {
                     margin: 0 auto;
                     img {
                         width: 100%;
-                        transform: scale(1);
-                        transition: .3s ease-in;
                     }
-                    &:hover {
-                        img {
-                            transform: scale(1.2);
-                        }
-                    }
+                }
+                .more {
+                    margin: {
+                        top: 30px;
+                        bottom: 30px;
+                    };
                 }
             }
         }       
@@ -658,14 +657,10 @@ ul li {
 }
 .more {
     display: inline-block;
-    width: 106px;
-    height: 106px;
-    background-color: $white;
-    border-radius: 50%;
+    padding-left: 30px;
     font-size: $h5-font-size;
     color: $lightgray;
     text-align: center;
-    line-height: 106px;
     text-decoration: none;
     position: relative;
     transition: all 0.3s ease-in;
