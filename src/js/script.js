@@ -217,7 +217,6 @@ accordionContent.forEach((item, index) => {
     let header = item.querySelector(".toggle");
     header.addEventListener("click", () =>{
         item.classList.toggle("open");
-
         let content = item.querySelector(".content");
         if(item.classList.contains("open")){
             content.style.height = `${content.scrollHeight}px`; 

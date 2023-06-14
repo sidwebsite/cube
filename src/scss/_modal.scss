@@ -64,7 +64,7 @@
 //     }	
 // }
 .fade {
-    transition: all 1s ease-in;
+    transition: opacity 1s ease-in;
     animation: fadeOut .3s linear forwards;
 }
 .fade:not(.show) {

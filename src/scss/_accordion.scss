@@ -27,7 +27,10 @@
         }
         > .li-wrapper {
             > p {
-                display: none;
+                // display: none;
+                overflow: hidden;
+                height: 0;
+                transition: .3s ease-in .3s;
             }
         }
         .toggle-icon {
@@ -105,7 +108,7 @@
                     };
                 }
             }
-        }       
+        }
     }
     &.open {
         > .toggle > .li-wrapper {
@@ -136,7 +139,9 @@
                 }
             }
             > p {
-                display: block;
+                height: 50px;
+                transition: .3s ease-in;
+                // display: block;
             }
         }
     }
