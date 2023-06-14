@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">       
+        <title>國泰世華CUBE App</title>
+        <meta name="keywords" content="">
+        <meta name="description" content="CUBE App提供您一站式數位金融服務，讓您可以即時查看帳戶餘額、刷卡記錄，並隨時進行轉帳、繳費等操作。此外，CUBE App還提供外匯、基金、證券等定期投資服務與保險專區，協助您便捷地進行理財規劃，享受輕鬆簡單的金融生活。">
+        <meta name="author" content="國泰世華銀行">
+        <meta name="copyright" content="">
+        <!-- stare facebook -->
+        <meta property="og:title" content="國泰世華CUBE App 產品服務" >
+        <meta property="og:description" content="CUBE App提供您一站式數位金融服務，讓您可以即時查看帳戶餘額、刷卡記錄，並隨時進行轉帳、繳費等操作。此外，CUBE App還提供外匯、基金、證券等定期投資服務與保險專區，協助您便捷地進行理財規劃，享受輕鬆簡單的金融生活。" >
+        <meta property="og:image" content="images/fb_photo.png">
+        <meta property="og:url" content="">
+        <!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="data:image/vnd.microsoft.icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARJkAD0uZBIxMmQSsTJkFzEyaBdtMmgXbTJoF20yaBdtMmgXMS5kErUyaBI1HjgASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFLmgS7TZoG/02aBv9MmgS9AP8AAQAAAAAAAAAAAAAAAAAAAAAAAAAAK4AABkqaA0xLmQSETJoGhkyaBoZMmwaHTJoF8k2aBv9Nmgb/TJoF8UuaBohMmgaGTJoGhkuZBIVLmgNOSZIAB0yZA5RLmgf/S5sJ/UuaBv5Nmgb/TZoG/02aBv9Nmgb/TZoG/02aBv9Nmgb/TZoG/02aBv9Nmgb/TZoG/0uYA5xKmwf6SpwL/0mdDf9InxD+S5sI/UyaBv5Nmgb/TZoG/02aBv9Nmgb/TZoG/02aBv9Nmgb/TZoG/02aBv9MmQX6SZwL7UmfDv5InxH/R6EV/0ajGP5IoBT9S5oG/k2ZBf9Nmgb/TZoG/02aBv9Nmgb/TZoG/02aBv9Nmgb/TJoF7kefEVpHoRX9R6IV/kajGP9FpBz/RKYf/0OoIv5Goxj9TJoF/U2aBv9Nmgb/TZoG/02aBv9Nmgb/TZoG/0qZA2QAAAAARKMc2UOmIf5DpiH9RKcg/kOoI/9CqSb/Qqoo/0GtK/5ArSz+RaYe/UmeDv1LmgX+TZoG/0yaBdsAAAAAAAAAAEGlIG5BqCf/P6ss/j6sMP4+rC/9Qasp/kCsLP9ArS//P68y/z6xNv89szn+PLU7/ju2Pf45tz54AAAAAAAAAAAAgAACPKYrPD2tM+08rzf/O7E8/zm0Qf44tUT+N7ZF/jm2RP04t0T9N7hH/Ta7Tew1tkE/AKoAAwAAAAAAAAAAAAAAAAAAAAA6rjQsOrI9+TmzQv83tkf/NrhN/zS6Uv8zvFb/Mb9b/zDCYfkuwmEyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADOqMw8ysUMuNbpJPzS8UsEyvFfCMb5YQy3BWy0gv2AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" />
+        <link rel="icon" type="image/x-icon" href="data:image/vnd.microsoft.icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARJkAD0uZBIxMmQSsTJkFzEyaBdtMmgXbTJoF20yaBdtMmgXMS5kErUyaBI1HjgASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFLmgS7TZoG/02aBv9MmgS9AP8AAQAAAAAAAAAAAAAAAAAAAAAAAAAAK4AABkqaA0xLmQSETJoGhkyaBoZMmwaHTJoF8k2aBv9Nmgb/TJoF8UuaBohMmgaGTJoGhkuZBIVLmgNOSZIAB0yZA5RLmgf/S5sJ/UuaBv5Nmgb/TZoG/02aBv9Nmgb/TZoG/02aBv9Nmgb/TZoG/02aBv9Nmgb/TZoG/0uYA5xKmwf6SpwL/0mdDf9InxD+S5sI/UyaBv5Nmgb/TZoG/02aBv9Nmgb/TZoG/02aBv9Nmgb/TZoG/02aBv9MmQX6SZwL7UmfDv5InxH/R6EV/0ajGP5IoBT9S5oG/k2ZBf9Nmgb/TZoG/02aBv9Nmgb/TZoG/02aBv9Nmgb/TJoF7kefEVpHoRX9R6IV/kajGP9FpBz/RKYf/0OoIv5Goxj9TJoF/U2aBv9Nmgb/TZoG/02aBv9Nmgb/TZoG/0qZA2QAAAAARKMc2UOmIf5DpiH9RKcg/kOoI/9CqSb/Qqoo/0GtK/5ArSz+RaYe/UmeDv1LmgX+TZoG/0yaBdsAAAAAAAAAAEGlIG5BqCf/P6ss/j6sMP4+rC/9Qasp/kCsLP9ArS//P68y/z6xNv89szn+PLU7/ju2Pf45tz54AAAAAAAAAAAAgAACPKYrPD2tM+08rzf/O7E8/zm0Qf44tUT+N7ZF/jm2RP04t0T9N7hH/Ta7Tew1tkE/AKoAAwAAAAAAAAAAAAAAAAAAAAA6rjQsOrI9+TmzQv83tkf/NrhN/zS6Uv8zvFb/Mb9b/zDCYfkuwmEyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADOqMw8ysUMuNbpJPzS8UsEyvFfCMb5YQy3BWy0gv2AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" /> 
+        <link rel="bookmark" type="image/x-icon" href="./images/favicon.ico" />
+        <link rel="apple-touch-icon" type="image/x-icon" href="images/icon-192x192.png" />
+        <!-- CelebrusInsert code -->
+        <!-- <script type="text/javascript" src="https://www.cathaybk.com.tw/celebrusInsert.js"></script> -->
+        <!-- Google Tag Manager -->
+        <!-- <script type="text/javascript" src="https://www.cathaybk.com.tw/cathaybk/promo/track/gtm/CUB_GTM.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.1/dist/gsap.min.js"></script>
+    <script defer src="./js/main.js?24307112"></script><link href="css/style.css?24307112" rel="stylesheet"></head>
+    <body style="overflow: hidden;">
+        <!--  -->
+        <div id="loading" class="loading">
+            <div class="loading-logo">
+                <div class="d-md-flex d-flex-colnmu align-items-center ju">
+                    <div class="logo">
+                        <img src="images/cube-logo.webp" alt="">
+                    </div>
+                    <div class="text">為<span class="text-gradient">可能</span>竭盡所能</div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <main>
+            <!-- header start -->
+            <header class="header">
+                <div class="container h-100">
+                    <div class="d-flex align-items-center justify-content-between h-100">
+                        <div class="logo"><img src="images/logo.svg" alt=""></div>   
+                        <div class="nav">
+                            <a href="#" class="dropdown-toggle material-symbols-outlined">menu</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#index">CUBE &nbsp;品牌主張</a></li>
+                                <li><a href="#serve">CUBE App &nbsp;產品服務</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- header end -->
+            <!-- banner start -->
+            <section class="banner section-id" id="index">
+                <div class="banner-box"></div>
+                <div class="banner-content">
+                    <figure class="mb-3 banner-logo">
+                        <img data-src="images/cube-logo.webp" alt="國泰世華銀行-cube logo" class="w-100 lazy">
+                    </figure>
+                    <p class="fs-3 banner-title">為<span class="text-gradient">可能</span>竭盡所能</p>            
+                    <div class="scroll-down">
+                        <span></span>
+                        <span>SCROLL DOWN</span>
+                    </div>
+                    <article class="banner-text">
+                        <p>世界的進步，源於人們的持續追求</p>
+                        <p>相信，不存在「最好」的終點</p>
+                        <p>相信，完結只是另一趟旅程的起點</p>
+                        <p>我們為更好的可能留白，持續向前不停下腳步</p>
+                        <p>期望能帶給用戶更優質的感受</p>
+                    </article>
+                </div>
+            </section>
+            <!-- banner end -->
+            <!-- video -->
+            <section class="section bg-light">
+                <div class="container wow animate__fadeIn" data-wow-duration="2s">
+                    <div class="row">
+                        <div class="col-lg-10 mx-auto">
+                            <div class="video">
+                                <a href="#" class="play-btn modal-btn material-symbols-outlined" data-youtube="9JtbsQHS2Hc" >play_circle</a>
+                                <figure>
+                                    <img data-src="images/video-img1.webp" alt="" class="w-100 lazy">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- video -->
+            <!-- introduction -->
+            <section class="section introduction">
+                <div class="container">
+                    <div class="row align-items-center wow animate__fadeIn" data-wow-duration="3s">
+                        <div class="col-lg-5">
+                            <figure class="introduction-img mb-5 mb-lg-0">
+                                <img data-src="images/cube-logo.webp" alt="" class="lazy">
+                            </figure>                            
+                        </div>
+                        <div class="col-lg-7">
+                            <article>
+                                <div class="wow  animate__fadeIn" data-wow-duration="5s">
+                                    <h3 class="fw-lighter mb-4">LOGO設計</h3>
+                                    <p class="lh-xl pb-5">樹葉，象徵著與我們並肩前行的客戶，致力提升每一位用戶的體驗，形塑出具有樹葉與方塊(CUBE)雙重涵義的標誌。</p>
+                                </div>
+                                <div class="wow  animate__fadeIn" data-wow-duration="5s">
+                                    <h3 class="mb-4 pt-5"><span class="fw-lighter mr-3 d-block d-lg-inline-block">命名由來</span>Cathay United Bank｜<span class="text-gradient">Empower</span></h3>
+                                    <p class="lh-xl">CUBE＝是國泰世華銀行的英文縮寫(Cathay United Bank)和數位賦能(Empower)的結合。致力以CUBE的賦能精神，運用數位科技的力量，打造一個多元、彈性、能雙向互動的數位金融服務，實踐客戶的想望，成為數位賦能的最佳體現。</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Introduction -->
+            <!-- serve -->
+            <section class="section section-id overflow-hidden" id="serve">
+                <div class="container d-none d-sm-block">
+                    <div class="row wow animate__fadeIn" data-wow-duration="2s">
+                        <div class="col-12 my-5">
+                            <h2 class="mb-2 text-center">想要的簡單 <span class="d-sm-inline-block d-block">就在 <span class="text-gradient">CUBE App</span></span></h2>
+                            <p class="fs-5 text-center">完整體驗一站式數位金融服務</p>
+                        </div>
+                        <!-- serve tabs -->
+                        <div class="col-12">
+                            <div id="tabs">
+                                <nav class="tab-nav mb-5">
+                                    <ul>
+                                        <li class="active">
+                                            <div class="li-wrapper">
+                                                <h3><span class="icon icon1"></span>帳戶安全</h3>
+                                                <p>帳戶登入與交易安全<br />時刻為你把關</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="li-wrapper">
+                                                <h3><span class="icon icon2"></span>個人化服務</h3>
+                                                <p>母子帳戶、投資、信用卡權益切換<br />簡單理財一次到位</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="li-wrapper">
+                                                <h3><span class="icon icon3"></span>保險服務</h3>
+                                                <p>產、壽險保單資訊一目瞭然<br />線上投保就這麼簡單</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <div class="tab-content">
+                                    <div class="tab-left-nav">
+                                        <a href="#serve" class="active"><span class="icon icon1"></span>帳戶安全</a>
+                                        <a href="#serve"><span class="icon icon2"></span>個人化服務</a>
+                                        <a href="#serve"><span class="icon icon3"></span>保險服務</a>
+                                    </div>
+                                    <div class="tab-pane fade active show">
+                                        <div class="content">
+                                            <div class="list">
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <figure>
+                                                            <img data-src="images/Safety-img-1.webp" alt="" class="lazy">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="tebs-article">
+                                                        <article>
+                                                            <h4 class="mb-3">FIDO快速登入</h4>
+                                                            <h5 class="mb-3">更快速安全的生物辨識驗證登入方式</h5>
+                                                            <p>FIDO是國際認證的識別標準，也是全球知名企業採行的驗證機制，國泰世華CUBE App則為台灣金融業使用FIDO進行登入的先驅！在此架構下，用戶的生物辨識資訊不會儲存在應用程式的伺服器上，亦毋需取得用戶個資，避免隱私外洩。從你開啟CUBE App開始，保護就開始！</p>
+                                                        </article>
+                                                        <div class="more-warpper">
+                                                            <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/security/login-security/" target="_blank" class="more">More</a>
+                                                        </div>  
+                                                    </div>
+                                                </div>                                    
+                                            </div>
+                                            <div class="list">
+                                                <div class="d-flex flex-row-reverse align-items-center">
+                                                    <div>
+                                                        <figure>
+                                                            <img data-src="images/Safety-img-2.webp" alt="" class="lazy">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="tebs-article">
+                                                        <article>
+                                                            <h4 class="mb-3">人臉辨識交易</h4>
+                                                            <h5 class="mb-3">兼具安全性與易用性，數位體驗更放心</h5>
+                                                            <p>透過手機前鏡頭就能進行交易！CUBE App的人臉辨識限定一個ID只能註冊一張臉，交易驗證時，系統即時比對當下辦理交易的人臉與客戶留存於本行之人臉資訊，判別兩者間的「臉部數百個特徵值」，以確保每筆交易皆由本人執行。無論轉帳、繳費、啟用手機提款，你交易時的每一步，都有我們守護！</p>
+                                                        </article>
+                                                        <div class="more-warpper">
+                                                            <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/security/transaction-protection/" target="_blank" class="more">More</a>
+                                                        </div>
+                                                    </div>
+                                                </div>                                                    
+                                            </div>
+                                            <div class="list">
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <figure>
+                                                            <img data-src="images/Safety-img-3.webp" alt="" class="lazy">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="tebs-article">
+                                                        <article>
+                                                            <h4 class="mb-3">安全健檢</h4>
+                                                            <h5 class="mb-3">多層級防護，嚴密保障你的資產</h5>
+                                                            <p>為了使你享有最流暢的使用體驗以及全面的資安防護，國泰世華CUBE App會自動檢測用戶設備狀態，並建議採取相對應的措施，全方位把關你的帳戶，安全有感看得見！</p>
+                                                        </article>
+                                                        <div class="more-warpper">
+                                                            <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/security/login-security/" target="_blank" class="more">More</a>
+                                                        </div>   
+                                                    </div>
+                                                </div>                                                                                                 
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade">
+                                        <div class="content">
+                                            <div class="list">
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <figure>
+                                                            <img data-src="images/serve-img-1.jpg" alt="" class="lazy">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="tebs-article">
+                                                        <article>
+                                                            <h4 class="mb-3">母子帳戶 分帳管理</h4>
+                                                            <h5 class="mb-3">讓夢想成為可實現的小目標，隨時掌握最新進度</h5>
+                                                            <p>在母帳戶下新增子帳戶，簡單達成分帳管理，財務收支更清楚！每個子帳戶皆能自由取名，不管是「愛的小窩」、「冰島基金」或是「秘密計畫」，你的夢想你說了算，實現的路上CUBE App陪你！</p>
+                                                        </article>
+                                                        <div class="more-warpper">
+                                                            <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/intro/digital-finance/" target="_blank" class="more">More</a>
+                                                        </div>   
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="list">
+                                                <div class="d-flex flex-row-reverse align-items-center">
+                                                    <div>
+                                                        <figure>
+                                                            <img data-src="images/serve-img-2.jpg" alt="" class="lazy">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="tebs-article">
+                                                        <article>
+                                                            <h4 class="mb-3">CUBE卡權益方案 由你自由切換</h4>
+                                                            <h5 class="mb-3">旅遊/百貨/網購 不同目的消費都有回饋</h5>
+                                                            <p>透過CUBE App，你可以依據需求自由切換CUBE卡的權益優惠，並領取優惠券，4大精選類型，滿足你在日常生活、旅行、購物與美食的各種消費！</p>
+                                                        </article>
+                                                        <div class="more-warpper">
+                                                            <a href="https://www.cathaybk.com.tw/cathaybk/personal/product/credit-card/cards/cube/#blockname03" target="_blank" class="more">More</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="list">
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <figure>
+                                                            <img data-src="images/serve-img-3.jpg" alt="" class="lazy">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="tebs-article">
+                                                        <article>
+                                                            <h4 class="mb-3">外幣服務</h4>
+                                                            <h5 class="mb-3">投資、旅遊、留學還是出差，每一種外幣需求，CUBE App線上幫你聰明換匯</h5>
+                                                            <p>簡單換、輕鬆省，CUBE App自動幫你試算平均換匯成本，讓你設定心中目標匯率點。簡單設定匯率到價通知，由系統幫你盯盤，當匯率達到心目中理想價位，將啟動Email、App推播發送到價通知。不再讓你痛失換匯甜蜜點。</p>
+                                                        </article>
+                                                        <div class="more-warpper">
+                                                            <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/intro/foreign-currency/" target="_blank" class="more">More</a>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="list">
+                                                <div class="d-flex flex-row-reverse align-items-center">
+                                                    <div>
+                                                        <figure>
+                                                            <img data-src="images/serve-img-4.jpg" alt="" class="lazy">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="tebs-article">
+                                                        <article>
+                                                            <h4 class="mb-3">基金投資</h4>
+                                                            <h5 class="mb-3">低申購門檻，無負擔踏出投資第一步</h5>
+                                                            <p>用CUBE App申購基金最低只要$500元，不限單筆或定期（不）定額，扣款日期及天數還能任選；備有多項觀察工具：排行榜、歷史走勢、績效表現等，申購時更有把握，小額輕鬆壯大投資。</p>
+                                                        </article>
+                                                        <div class="more-warpper">
+                                                            <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/intro/invest-manage/" target="_blank" class="more">More</a>
+                                                        </div>
+                                                    </div>                                                    
+                                                </div>
+                                            </div>
+                                            <div class="list">
+                                                <div class="d-flex align-items-center">
+                                                    <div>
+                                                        <figure>
+                                                            <img data-src="images/serve-img-5.jpg" alt="" class="lazy">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="tebs-article">
+                                                        <article>
+                                                            <h4 class="mb-3">證券開戶</h4>
+                                                            <h5 class="mb-3">線上開證券戶最快僅需5分鐘，做全球頂尖企業的股東</h5>
+                                                            <p>免出門線上一次申辦台股及複委託帳戶，綁定既有帳戶即可扣款！輕鬆就能開始台股定期定額、美股定期定股，讓你的投資遍地開花！<br />
+                                                                證券服務係由國泰綜合證券提供，CUBE App由國泰世華銀行建置</p>
+                                                        </article>
+                                                        <div class="more-warpper">
+                                                            <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/intro/invest-manage/" target="_blank" class="more">More</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade">
+                                        <div class="content">
+                                            <div class="list">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="mr-3">
+                                                        <figure style="width: auto;">
+                                                            <img data-src="images/Insurance-img-1.png" alt="" class="lazy">
+                                                        </figure>
+                                                    </div>
+                                                    <div class="tebs-article">
+                                                        <article>
+                                                            <h4 class="mb-3">查詢保單、保險新知、線上投保 </h4>
+                                                            <h5 class="mb-3">管理風險，更能掌握未來</h5>
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <figure class="mb-3 mr-0">
+                                                                        <img data-src="images/Insurance-img-2.jpg" alt="" class="w-100 lazy">
+                                                                    </figure>
+                                                                    <h5>提醒應繳保費(僅壽險)</h5>
+                                                                    <p>常見6種幣別，金額係以下一繳款日當天需繳納之保險費總額</p>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <figure class="mb-3 mr-0">
+                                                                        <img data-src="images/Insurance-img-3.jpg" alt="" class="w-100 lazy">
+                                                                    </figure>
+                                                                    <h5>提醒即將到期(僅產險)</h5>
+                                                                    <p>引導至國泰產險續保</p>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                            <div class="more-warpper">
+                                                            <a href="javascript:void(0)" class="more">More</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!-- accordion -->
+                <div class="container d-sm-none d-block">
+                    <div class="row wow animate__fadeIn" data-wow-duration="2s">
+                        <div class="col-12 my-5">
+                            <h2 class="mb-2 text-center pt-5">想要的簡單 <span class="d-sm-inline-block d-block">就在 <span class="text-gradient">CUBE App</span></span></h2>
+                            <p class="fs-5 text-center">完整體驗一站式數位金融服務</p>
+                        </div>
+                        <div class="col-12">
+                            <div class="accordion">
+                                <!--  -->
+                                <div class="accordion-item">
+                                    <div class="toggle">
+                                        <div class="li-wrapper">
+                                            <h3><span class="icon icon1"></span>帳戶安全</h3>
+                                            <p>帳戶登入與交易安全<br />時刻為你把關</p>
+                                        </div>
+                                        <span class="toggle-icon material-symbols-outlined">add</span>
+                                    </div>
+                                    <div class="content">
+                                        <div class="content-wrapper">
+                                            <div class="list text-center">
+                                                <figure>
+                                                    <img data-src="images/Safety-img-1.webp" src="images/Safety-img-1.webp" alt="" class="lazy">
+                                                </figure>
+                                                <article class="text-left">
+                                                    <h4 class="mb-3">FIDO快速登入</h4>
+                                                    <h5 class="mb-3">更快速安全的生物辨識驗證登入方式</h5>
+                                                    <p>FIDO是國際認證的識別標準，也是全球知名企業採行的驗證機制，國泰世華CUBE App則為台灣金融業使用FIDO進行登入的先驅！在此架構下，用戶的生物辨識資訊不會儲存在應用程式的伺服器上，亦毋需取得用戶個資，避免隱私外洩。從你開啟CUBE App開始，保護就開始！</p>
+                                                </article>
+                                                <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/security/login-security/" target="_blank" class="more">More</a>
+                                            </div>
+                                            <div class="list text-center">
+                                                <figure>
+                                                    <img data-src="images/Safety-img-2.webp" src="images/Safety-img-2.webp" alt="" class="lazy">
+                                                </figure>
+                                                <article class="text-left">
+                                                    <h4 class="mb-3">人臉辨識交易</h4>
+                                                    <h5 class="mb-3">兼具安全性與易用性，數位體驗更放心</h5>
+                                                    <p>透過手機前鏡頭就能進行交易！CUBE App的人臉辨識限定一個ID只能註冊一張臉，交易驗證時，系統即時比對當下辦理交易的人臉與客戶留存於本行之人臉資訊，判別兩者間的「臉部數百個特徵值」，以確保每筆交易皆由本人執行。無論轉帳、繳費、啟用手機提款，你交易時的每一步，都有我們守護！</p>
+                                                </article>
+                                                <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/security/transaction-protection/" target="_blank" class="more">More</a>
+                                            </div>
+                                            <div class="list text-center">                                                
+                                                <figure>
+                                                    <img data-src="images/Safety-img-3.webp" src="images/Safety-img-3.webp" alt="" class="lazy">
+                                                </figure>
+                                                <article class="text-left">
+                                                    <h4 class="mb-3">安全健檢</h4>
+                                                    <h5 class="mb-3">多層級防護，嚴密保障你的資產</h5>
+                                                    <p>為了使你享有最流暢的使用體驗以及全面的資安防護，國泰世華CUBE App會自動檢測用戶設備狀態，並建議採取相對應的措施，全方位把關你的帳戶，安全有感看得見！</p>
+                                                </article>
+                                                <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/security/login-security/" target="_blank" class="more">More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--  -->
+                                <div class="accordion-item">
+                                    <div class="toggle">
+                                        <div class="li-wrapper">
+                                            <h3><span class="icon icon2"></span>個人化服務</h3>
+                                            <p>母子帳戶、投資、信用卡權益切換<br />簡單理財一次到位</p>
+                                        </div>
+                                        <span class="toggle-icon material-symbols-outlined">add</span>
+                                    </div>
+                                    <div class="content">
+                                        <div class="content-wrapper">
+                                            <div class="list text-center">
+                                                <figure>
+                                                    <img data-src="images/serve-img-1.jpg" src="images/serve-img-1.jpg" alt="" class="lazy">
+                                                </figure>
+                                                <article class="text-left">
+                                                    <h4 class="mb-3">母子帳戶 分帳管理</h4>
+                                                    <h5 class="mb-3">讓夢想成為可實現的小目標，隨時掌握最新進度</h5>
+                                                    <p>在母帳戶下新增子帳戶，簡單達成分帳管理，財務收支更清楚！每個子帳戶皆能自由取名，不管是「愛的小窩」、「冰島基金」或是「秘密計畫」，你的夢想你說了算，實現的路上CUBE App陪你！</p>
+                                                </article>
+                                                <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/intro/digital-finance/" target="_blank" class="more">More</a>
+                                            </div>
+                                            <div class="list text-center">
+                                                <figure>
+                                                    <img data-src="images/serve-img-2.jpg" src="images/serve-img-2.jpg" alt="" class="lazy">
+                                                </figure>
+                                                <article class="text-left">
+                                                    <h4 class="mb-3">CUBE卡權益方案 由你自由切換</h4>
+                                                    <h5 class="mb-3">旅遊/百貨/網購 不同目的消費都有回饋</h5>
+                                                    <p>透過CUBE App，你可以依據需求自由切換CUBE卡的權益優惠，並領取優惠券，4大精選類型，滿足你在日常生活、旅行、購物與美食的各種消費！</p>
+                                                </article>
+                                                <a href="https://www.cathaybk.com.tw/cathaybk/personal/product/credit-card/cards/cube/#blockname03" target="_blank" class="more">More</a>
+                                            </div>
+                                            <div class="list text-center">
+                                                <figure>
+                                                    <img data-src="images/serve-img-3.jpg" src="images/serve-img-3.jpg" alt="" class="lazy">
+                                                </figure>
+                                                <article class="text-left">
+                                                    <h4 class="mb-3">外幣服務</h4>
+                                                    <h5 class="mb-3">投資、旅遊、留學還是出差，每一種外幣需求，CUBE App線上幫你聰明換匯</h5>
+                                                    <p>簡單換、輕鬆省，CUBE App自動幫你試算平均換匯成本，讓你設定心中目標匯率點。簡單設定匯率到價通知，由系統幫你盯盤，當匯率達到心目中理想價位，將啟動Email、App推播發送到價通知。不再讓你痛失換匯甜蜜點。</p>
+                                                </article>
+                                                <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/intro/foreign-currency/" target="_blank" class="more">More</a>
+                                            </div>
+                                            <div class="list text-center">
+                                                <figure>
+                                                    <img data-src="images/serve-img-4.jpg" src="images/serve-img-4.jpg" alt="" class="lazy">
+                                                </figure>
+                                                <article class="text-left">
+                                                    <h4 class="mb-3">基金投資</h4>
+                                                    <h5 class="mb-3">低申購門檻，無負擔踏出投資第一步</h5>
+                                                    <p>用CUBE App申購基金最低只要$500元，不限單筆或定期（不）定額，扣款日期及天數還能任選；備有多項觀察工具：排行榜、歷史走勢、績效表現等，申購時更有把握，小額輕鬆壯大投資。</p>
+                                                </article>
+                                                <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/intro/invest-manage/" target="_blank" class="more">More</a>
+                                            </div>
+                                            <div class="list text-center">
+                                                <figure>
+                                                    <img data-src="images/serve-img-5.jpg" src="images/serve-img-5.jpg" alt="" class="lazy">
+                                                </figure>
+                                                <article class="text-left">
+                                                    <h4 class="mb-3">證券開戶</h4>
+                                                    <h5 class="mb-3">線上開證券戶最快僅需5分鐘，做全球頂尖企業的股東</h5>
+                                                    <p>免出門線上一次申辦台股及複委託帳戶，綁定既有帳戶即可扣款！輕鬆就能開始台股定期定額、美股定期定股，讓你的投資遍地開花！<br />
+                                                        證券服務係由國泰綜合證券提供，CUBE App由國泰世華銀行建置</p>
+                                                </article>
+                                                <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/intro/invest-manage/" target="_blank" class="more">More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--  -->
+                                <div class="accordion-item">
+                                    <div class="toggle">
+                                        <div class="li-wrapper">
+                                            <h3><span class="icon icon3"></span>保險服務</h3>
+                                            <p>產、壽險保單資訊一目瞭然<br />線上投保就這麼簡單</p>
+                                        </div>
+                                        <span class="toggle-icon material-symbols-outlined">add</span>
+                                    </div>
+                                    <div class="content">
+                                        <div class="content-wrapper">
+                                            <div class="list text-center">
+                                                <figure>
+                                                    <img data-src="images/Insurance-big-img-1.png" src="images/Insurance-big-img-1.png" alt="" class="lazy">
+                                                </figure>
+                                                <article class="text-left">
+                                                    <h4 class="mb-3">查詢保單、保險新知、線上投保 </h4>
+                                                    <h5 class="mb-3">管理風險，更能掌握未來</h5>
+                                                    <div class="row">
+                                                        <div class="col-sm-6 mb-5">
+                                                            <figure class="mb-3">
+                                                                <img data-src="images/Insurance-img-2.jpg" src="images/Insurance-img-2.jpg" alt="" class="lazy">
+                                                            </figure>
+                                                            <h5>提醒應繳保費(僅壽險)</h5>
+                                                            <p>常見6種幣別，金額係以下一繳款日當天需繳納之保險費總額</p>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <figure class="mb-3">
+                                                                <img data-src="images/Insurance-img-3.jpg" src="images/Insurance-img-3.jpg" alt="" class="lazy">
+                                                            </figure>
+                                                            <h5>提醒即將到期(僅產險)</h5>
+                                                            <p>引導至國泰產險續保</p>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                                <a href="javascript:void(0)" class="more">More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--  -->
+            <!-- video -->
+            <section class="section">
+                <div class="container wow animate__fadeIn" data-wow-duration="2s">
+                    <div class="row">
+                        <div class="col-lg-10 mx-auto">
+                            <div class="video">
+                                <a href="#" class="play-btn modal-btn material-symbols-outlined" data-youtube="9JtbsQHS2Hc" >play_circle</a>
+                                <figure>
+                                    <img data-src="images/video-img2.webp" alt="" class="w-100 lazy">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- video -->
+            <!-- serve -->
+            <section class="section gallery">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 container wow animate__fadeIn" data-wow-duration="2s">
+                            <h2 class="mb-5 text-center"><span class="text-gradient mr-3">CUBE App</span>一指開啟你的簡單生活</h2>
+                        </div>
+                        <div class="col-12 wow animate__fadeIn"  data-wow-duration="2s">
+                            <div class="swiper mySwiper py-5">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="row flex-md-row flex-column-reverse px-3 px-sm-5 px-lg-0">
+                                            <div class="col-md-7">
+                                                <article>
+                                                    <h3 class="mb-3">簡單生活小姐</h3>
+                                                    <p class="mb-5">我是介紹文字區塊我是介紹文字區塊
+                                                        我是介紹文字區塊,我是介紹文字區塊我是介紹文字區塊,我是介紹文字區塊,我是介紹文字區塊我是介紹文字區塊
+                                                        我是介紹文字區塊,我是介紹文字區塊我是介紹文字區塊我是介紹文字區塊,我是介紹文字區塊...</p>
+                                                    <div class="text-right">
+                                                        <a href="javascript:void(0)" class="more bg-transparent">More</a>
+                                                    </div>           
+                                                </article>
+                                            </div>
+                                            <div class="col-md-5 mb-3">
+                                                <div class="video">
+                                                    <a href="#" class="play-btn modal-btn material-symbols-outlined" data-youtube="9JtbsQHS2Hc" >play_circle</a>
+                                                    <figure>
+                                                        <img src="images/video-img3.webp" alt="" class="w-100" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="row flex-md-row flex-column-reverse px-3 px-sm-5 px-lg-0">
+                                            <div class="col-md-7">
+                                                <article>
+                                                    <h3 class="mb-3">簡單生活小姐</h3>
+                                                    <p class="mb-5">我是介紹文字區塊我是介紹文字區塊
+                                                        我是介紹文字區塊,我是介紹文字區塊我是介紹文字區塊,我是介紹文字區塊,我是介紹文字區塊我是介紹文字區塊
+                                                        我是介紹文字區塊,我是介紹文字區塊我是介紹文字區塊我是介紹文字區塊,我是介紹文字區塊...</p>
+                                                    <div class="text-right">
+                                                        <a href="javascript:void(0)" class="more bg-transparent">More</a>
+                                                    </div>           
+                                                </article>
+                                            </div>
+                                            <div class="col-md-5 mb-3">
+                                                <div class="video">
+                                                    <a href="#" class="play-btn modal-btn material-symbols-outlined" data-youtube="9JtbsQHS2Hc" >play_circle</a>
+                                                    <figure>
+                                                        <img src="images/video-img2.webp" alt="" class="w-100" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="row flex-md-row flex-column-reverse px-3 px-sm-5 px-lg-0">
+                                            <div class="col-md-7">
+                                                <article>
+                                                    <h3 class="mb-3">簡單生活小姐</h3>
+                                                    <p class="mb-5">我是介紹文字區塊我是介紹文字區塊
+                                                        我是介紹文字區塊,我是介紹文字區塊我是介紹文字區塊,我是介紹文字區塊,我是介紹文字區塊我是介紹文字區塊
+                                                        我是介紹文字區塊,我是介紹文字區塊我是介紹文字區塊我是介紹文字區塊,我是介紹文字區塊...</p>
+                                                    <div class="text-right">
+                                                        <a href="javascript:void(0)" class="more bg-transparent">More</a>
+                                                    </div>           
+                                                </article>
+                                            </div>
+                                            <div class="col-md-5 mb-3">
+                                                <div class="video">
+                                                    <a href="#" class="play-btn modal-btn material-symbols-outlined" data-youtube="9JtbsQHS2Hc" >play_circle</a>
+                                                    <figure>
+                                                        <img src="images/video-img1.webp" alt="" class="w-100" loading="lazy">
+                                                    </figure>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--  -->
+            <!-- footer start -->
+            <footer class="footer-top-border">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="footer-content">
+                                <h3 class="text-center mb-3 fw-lighter">謹慎理財 信用無價</h3>
+                                <p class="mb-4 lh-md">信用卡暨預借現金之各級別循環信用年利率為6.75％~15％（依本行信用評分制度定期評估，循環利率之基準日為104年9月1日）。<br />預借現金手續費：預借現金金額乘以3％加上新臺幣150元或美元5元，其他相關費用係依本行網站公告。</p>
+                                <p class="lh-md">為提供您最佳個人化且即時的服務，本網站透過使用Cookies記錄、存取及蒐集您的網路行為活動資料。當您使用本網站，即表示您同意Cookies技術支援。更多資訊請參閱隱私權保護政策。</p>
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md">
+                                <nav>
+                                    <ul>
+                                        <li><a href="" target="_blank">CUBE App</a></li>
+                                        <li><a href="" target="_blank">服務據點</a></li>
+                                        <li><a href="" target="_blank">聯絡我們</a></li>
+                                        <li><a href="https://www.cathaybk.com.tw/cathaybk/personal/about/news/customer-benefits/client-privacy/" target="_blank">顧客資料保密措施</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="col-auto">
+                                <p class="text-sm-right text-center">©國泰世華商業銀行股份有限公司</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- footer end -->
+        </main>
+        <!-- go top -->
+        <a href="#" id="gotop"><span class="material-symbols-outlined">arrow_upward</span></a>
+        <!--  -->
+        <div class="modal fade" id="videoModal">
+            <div class="modal-dialog">
+                <div class="modal-body">
+                    <div class="modal-header"> 
+                        <button type="button" class="btn modal-close-btn"><span class="material-symbols-outlined">close</span></button>
+                    </div>
+                    <div class="modal-content">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="" id="youtube" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+    </body>
+</html>
