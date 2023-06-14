@@ -1,0 +1,24 @@
+.video {
+    position: relative;
+    .play-btn {
+        cursor: pointer;
+        position: absolute;
+        background-color: transparent;
+        color: $white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: .3;
+        transition: .3s ease-in;
+        font-size: 10rem;
+        z-index: 10;
+        text-decoration: none;
+        &:hover {
+            background: $primary-gradient-vertical;
+            background-clip: text;
+            color: transparent;
+            transition: .3s ease-in;
+            opacity: 1;
+        }
+    }
+}

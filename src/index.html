@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">       
-        <title>國泰世華CUBE App 產品服務</title>
+        <title>國泰世華CUBE App</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -23,16 +23,17 @@
         <!-- <script type="text/javascript" src="https://www.cathaybk.com.tw/celebrusInsert.js"></script> -->
         <!-- Google Tag Manager -->
         <!-- <script type="text/javascript" src="https://www.cathaybk.com.tw/cathaybk/promo/track/gtm/CUB_GTM.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.1/dist/gsap.min.js"></script>
     </head>
-    <body class="overflow-hidden">
+    <body style="overflow: hidden;">
         <!--  -->
         <div id="loading" class="loading">
             <div class="loading-logo">
                 <div class="d-md-flex d-flex-colnmu align-items-center ju">
-                    <div class="text-center">
+                    <div class="logo">
                         <img src="./images/cube-logo.webp" alt="">
                     </div>
-                    <div class="loading-text">為<span class="text-gradient">可能</span>竭盡所能</div>
+                    <div class="text">為<span class="text-gradient">可能</span>竭盡所能</div>
                 </div>
             </div>
         </div>
@@ -46,7 +47,7 @@
                         <div class="nav">
                             <a href="#" class="dropdown-toggle material-symbols-outlined">menu</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#index" class="active">CUBE &nbsp;主張</a></li>
+                                <li><a href="#index">CUBE &nbsp;品牌主張</a></li>
                                 <li><a href="#serve">CUBE App &nbsp;產品服務</a></li>
                             </ul>
                         </div>
@@ -58,15 +59,15 @@
             <section class="banner section-id" id="index">
                 <div class="banner-box"></div>
                 <div class="banner-content">
-                    <figure class="mb-3 wow animate__bounceIn" data-wow-duration="2s">
-                        <img data-src="./images/cube-logo.webp" alt="國泰世華銀行-cube logo" class="w-100 lazy">
+                    <figure class="mb-3 banner-logo">
+                        <img data-src="./images/cube-logo.webp" src="./images/cube-logo.webp" alt="國泰世華銀行-cube logo" class="w-100 lazy">
                     </figure>
-                    <p class="fs-3 wow animate__flipInX" data-wow-duration="3s">為<span class="text-gradient">可能</span>竭盡所能</p>            
-                    <div class="scroll-down wow animate__slideInDown" data-wow-duration="1s">
+                    <p class="fs-3 banner-title">為<span class="text-gradient">可能</span>竭盡所能</p>            
+                    <div class="scroll-down">
                         <span></span>
                         <span>SCROLL DOWN</span>
                     </div>
-                    <article class="wow animate__fadeIn" data-wow-duration="5s">
+                    <article class="banner-text">
                         <p>世界的進步，源於人們的持續追求</p>
                         <p>相信，不存在「最好」的終點</p>
                         <p>相信，完結只是另一趟旅程的起點</p>
@@ -84,7 +85,7 @@
                             <div class="video">
                                 <a href="#" class="play-btn modal-btn material-symbols-outlined" data-youtube="9JtbsQHS2Hc" >play_circle</a>
                                 <figure>
-                                    <img data-src="./images/video-img1.webp" alt="" class="w-100 lazy">
+                                    <img data-src="./images/video-img1.webp" src="./images/video-img1.webp" alt="" class="w-100 lazy">
                                 </figure>
                             </div>
                         </div>
@@ -98,7 +99,7 @@
                     <div class="row align-items-center wow animate__fadeIn" data-wow-duration="3s">
                         <div class="col-lg-5">
                             <figure class="introduction-img mb-5 mb-lg-0">
-                                <img data-src="./images/cube-logo.webp" alt="" class="lazy">
+                                <img data-src="./images/cube-logo.webp" src="./images/cube-logo.webp" alt="" class="lazy">
                             </figure>                            
                         </div>
                         <div class="col-lg-7">
@@ -165,7 +166,7 @@
                                                             <img data-src="./images/Safety-img-1.webp" src="./images/Safety-img-1.webp" alt="" class="lazy">
                                                         </figure>
                                                     </div>
-                                                    <div>
+                                                    <div class="tebs-article">
                                                         <article>
                                                             <h4 class="mb-3">FIDO快速登入</h4>
                                                             <h5 class="mb-3">更快速安全的生物辨識驗證登入方式</h5>
@@ -184,7 +185,7 @@
                                                             <img data-src="./images/Safety-img-2.webp" src="./images/Safety-img-2.webp" alt="" class="lazy">
                                                         </figure>
                                                     </div>
-                                                    <div>
+                                                    <div class="tebs-article">
                                                         <article>
                                                             <h4 class="mb-3">人臉辨識交易</h4>
                                                             <h5 class="mb-3">兼具安全性與易用性，數位體驗更放心</h5>
@@ -203,7 +204,7 @@
                                                             <img data-src="./images/Safety-img-3.webp" src="./images/Safety-img-3.webp" alt="" class="lazy">
                                                         </figure>
                                                     </div>
-                                                    <div>
+                                                    <div class="tebs-article">
                                                         <article>
                                                             <h4 class="mb-3">安全健檢</h4>
                                                             <h5 class="mb-3">多層級防護，嚴密保障你的資產</h5>
@@ -223,10 +224,10 @@
                                                 <div class="d-flex align-items-center">
                                                     <div>
                                                         <figure>
-                                                            <img data-src="./images/serve-img-1.webp" src="./images/serve-img-1.webp" alt="" class="lazy">
+                                                            <img data-src="./images/serve-img-1.jpg" src="./images/serve-img-1.jpg" alt="" class="lazy">
                                                         </figure>
                                                     </div>
-                                                    <div>
+                                                    <div class="tebs-article">
                                                         <article>
                                                             <h4 class="mb-3">母子帳戶 分帳管理</h4>
                                                             <h5 class="mb-3">讓夢想成為可實現的小目標，隨時掌握最新進度</h5>
@@ -242,10 +243,10 @@
                                                 <div class="d-flex flex-row-reverse align-items-center">
                                                     <div>
                                                         <figure>
-                                                            <img data-src="./images/serve-img-2.webp" src="./images/serve-img-2.webp" alt="" class="lazy">
+                                                            <img data-src="./images/serve-img-2.jpg" src="./images/serve-img-2.jpg" alt="" class="lazy">
                                                         </figure>
                                                     </div>
-                                                    <div>
+                                                    <div class="tebs-article">
                                                         <article>
                                                             <h4 class="mb-3">CUBE卡權益方案 由你自由切換</h4>
                                                             <h5 class="mb-3">旅遊/百貨/網購 不同目的消費都有回饋</h5>
@@ -261,14 +262,14 @@
                                                 <div class="d-flex align-items-center">
                                                     <div>
                                                         <figure>
-                                                            <img data-src="./images/serve-img-3.webp" src="./images/serve-img-3.webp" alt="" class="lazy">
+                                                            <img data-src="./images/serve-img-3.jpg" src="./images/serve-img-3.jpg" alt="" class="lazy">
                                                         </figure>
                                                     </div>
-                                                    <div>
+                                                    <div class="tebs-article">
                                                         <article>
                                                             <h4 class="mb-3">外幣服務</h4>
-                                                            <h5 class="mb-3">投資、旅遊、留學還是出差，每一種外幣需求，CUBE App線上幫您聰明換匯</h5>
-                                                            <p>簡單換、輕鬆省，CUBE App自動幫您試算平均換匯成本，讓您設定心中目標匯率點。簡單設定匯率到價通知，由系統幫您盯盤，當匯率達到心目中理想價位，將啟動Email、App推播發送到價通知。不再讓您痛失換匯甜蜜點。</p>
+                                                            <h5 class="mb-3">投資、旅遊、留學還是出差，每一種外幣需求，CUBE App線上幫你聰明換匯</h5>
+                                                            <p>簡單換、輕鬆省，CUBE App自動幫你試算平均換匯成本，讓你設定心中目標匯率點。簡單設定匯率到價通知，由系統幫你盯盤，當匯率達到心目中理想價位，將啟動Email、App推播發送到價通知。不再讓你痛失換匯甜蜜點。</p>
                                                         </article>
                                                         <div class="more-warpper">
                                                             <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/intro/foreign-currency/" target="_blank" class="more">More</a>
@@ -280,10 +281,10 @@
                                                 <div class="d-flex flex-row-reverse align-items-center">
                                                     <div>
                                                         <figure>
-                                                            <img data-src="./images/serve-img-4.webp" src="./images/serve-img-4.webp" alt="" class="lazy">
+                                                            <img data-src="./images/serve-img-4.jpg" src="./images/serve-img-4.jpg" alt="" class="lazy">
                                                         </figure>
                                                     </div>
-                                                    <div>
+                                                    <div class="tebs-article">
                                                         <article>
                                                             <h4 class="mb-3">基金投資</h4>
                                                             <h5 class="mb-3">低申購門檻，無負擔踏出投資第一步</h5>
@@ -299,14 +300,15 @@
                                                 <div class="d-flex align-items-center">
                                                     <div>
                                                         <figure>
-                                                            <img data-src="./images/serve-img-5.webp" src="./images/serve-img-5.webp" alt="" class="lazy">
+                                                            <img data-src="./images/serve-img-5.jpg" src="./images/serve-img-5.jpg" alt="" class="lazy">
                                                         </figure>
                                                     </div>
-                                                    <div>
+                                                    <div class="tebs-article">
                                                         <article>
                                                             <h4 class="mb-3">證券開戶</h4>
                                                             <h5 class="mb-3">線上開證券戶最快僅需5分鐘，做全球頂尖企業的股東</h5>
-                                                            <p>開戶、選股、下單，用國泰世華CUBE App彈指完成！只要申辦台股及複委託帳戶，綁定既有帳戶即可扣款！ CUBE App中更設有「定期投資」服務，無論是台股定期定額，或是美股定期定股，讓你的投資遍地開花！</p>
+                                                            <p>免出門線上一次申辦台股及複委託帳戶，綁定既有帳戶即可扣款！輕鬆就能開始台股定期定額、美股定期定股，讓你的投資遍地開花！<br />
+                                                                證券服務係由國泰綜合證券提供，CUBE App由國泰世華銀行建置</p>
                                                         </article>
                                                         <div class="more-warpper">
                                                             <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/intro/invest-manage/" target="_blank" class="more">More</a>
@@ -322,24 +324,24 @@
                                                 <div class="d-flex align-items-center">
                                                     <div class="mr-3">
                                                         <figure style="width: auto;">
-                                                            <img data-src="./images/Insurance-img-1.webp" src="./images/Insurance-img-1.webp" alt="" class="lazy">
+                                                            <img data-src="./images/Insurance-img-1.png" src="./images/Insurance-img-1.png" alt="" class="lazy">
                                                         </figure>
                                                     </div>
-                                                    <div>
+                                                    <div class="tebs-article">
                                                         <article>
                                                             <h4 class="mb-3">查詢保單、保險新知、線上投保 </h4>
                                                             <h5 class="mb-3">管理風險，更能掌握未來</h5>
                                                             <div class="row">
                                                                 <div class="col-sm-6">
-                                                                    <figure class="mb-3 mr-0" style="width: auto;">
-                                                                        <img data-src="./images/Insurance-img-2.webp" src="./images/Insurance-img-2.webp" alt="" class="w-100 lazy">
+                                                                    <figure class="mb-3 mr-0">
+                                                                        <img data-src="./images/Insurance-img-2.jpg" src="./images/Insurance-img-2.jpg" alt="" class="w-100 lazy">
                                                                     </figure>
                                                                     <h5>提醒應繳保費(僅壽險)</h5>
                                                                     <p>常見6種幣別，金額係以下一繳款日當天需繳納之保險費總額</p>
                                                                 </div>
                                                                 <div class="col-sm-6">
-                                                                    <figure class="mb-3 mr-0" style="width: auto;">
-                                                                        <img data-src="./images/Insurance-img-3.webp" src="./images/Insurance-img-3.webp" alt="" class="w-100 lazy">
+                                                                    <figure class="mb-3 mr-0">
+                                                                        <img data-src="./images/Insurance-img-3.jpg" src="./images/Insurance-img-3.jpg" alt="" class="w-100 lazy">
                                                                     </figure>
                                                                     <h5>提醒即將到期(僅產險)</h5>
                                                                     <p>引導至國泰產險續保</p>
@@ -360,7 +362,7 @@
                         
                     </div>
                 </div>
-                <!--  -->
+                <!-- accordion -->
                 <div class="container d-sm-none d-block">
                     <div class="row wow animate__fadeIn" data-wow-duration="2s">
                         <div class="col-12 my-5">
@@ -429,7 +431,7 @@
                                         <div class="content-wrapper">
                                             <div class="list text-center">
                                                 <figure>
-                                                    <img data-src="./images/serve-img-1.webp" src="./images/serve-img-1.webp" alt="" class="lazy">
+                                                    <img data-src="./images/serve-img-1.jpg" src="./images/serve-img-1.jpg" alt="" class="lazy">
                                                 </figure>
                                                 <article class="text-left">
                                                     <h4 class="mb-3">母子帳戶 分帳管理</h4>
@@ -440,7 +442,7 @@
                                             </div>
                                             <div class="list text-center">
                                                 <figure>
-                                                    <img data-src="./images/serve-img-2.webp" src="./images/serve-img-2.webp" alt="" class="lazy">
+                                                    <img data-src="./images/serve-img-2.jpg" src="./images/serve-img-2.jpg" alt="" class="lazy">
                                                 </figure>
                                                 <article class="text-left">
                                                     <h4 class="mb-3">CUBE卡權益方案 由你自由切換</h4>
@@ -451,18 +453,18 @@
                                             </div>
                                             <div class="list text-center">
                                                 <figure>
-                                                    <img data-src="./images/serve-img-3.webp" src="./images/serve-img-3.webp" alt="" class="lazy">
+                                                    <img data-src="./images/serve-img-3.jpg" src="./images/serve-img-3.jpg" alt="" class="lazy">
                                                 </figure>
                                                 <article class="text-left">
                                                     <h4 class="mb-3">外幣服務</h4>
-                                                    <h5 class="mb-3">投資、旅遊、留學還是出差，每一種外幣需求，CUBE App線上幫您聰明換匯</h5>
-                                                    <p>簡單換、輕鬆省，CUBE App自動幫您試算平均換匯成本，讓您設定心中目標匯率點。簡單設定匯率到價通知，由系統幫您盯盤，當匯率達到心目中理想價位，將啟動Email、App推播發送到價通知。不再讓您痛失換匯甜蜜點。</p>
+                                                    <h5 class="mb-3">投資、旅遊、留學還是出差，每一種外幣需求，CUBE App線上幫你聰明換匯</h5>
+                                                    <p>簡單換、輕鬆省，CUBE App自動幫你試算平均換匯成本，讓你設定心中目標匯率點。簡單設定匯率到價通知，由系統幫你盯盤，當匯率達到心目中理想價位，將啟動Email、App推播發送到價通知。不再讓你痛失換匯甜蜜點。</p>
                                                 </article>
                                                 <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/intro/foreign-currency/" target="_blank" class="more">More</a>
                                             </div>
                                             <div class="list text-center">
                                                 <figure>
-                                                    <img data-src="./images/serve-img-4.webp" src="./images/serve-img-4.webp" alt="" class="lazy">
+                                                    <img data-src="./images/serve-img-4.jpg" src="./images/serve-img-4.jpg" alt="" class="lazy">
                                                 </figure>
                                                 <article class="text-left">
                                                     <h4 class="mb-3">基金投資</h4>
@@ -473,12 +475,13 @@
                                             </div>
                                             <div class="list text-center">
                                                 <figure>
-                                                    <img data-src="./images/serve-img-5.webp" src="./images/serve-img-5.webp" alt="" class="lazy">
+                                                    <img data-src="./images/serve-img-5.jpg" src="./images/serve-img-5.jpg" alt="" class="lazy">
                                                 </figure>
                                                 <article class="text-left">
                                                     <h4 class="mb-3">證券開戶</h4>
                                                     <h5 class="mb-3">線上開證券戶最快僅需5分鐘，做全球頂尖企業的股東</h5>
-                                                    <p>開戶、選股、下單，用國泰世華CUBE App彈指完成！只要申辦台股及複委託帳戶，綁定既有帳戶即可扣款！ CUBE App中更設有「定期投資」服務，無論是台股定期定額，或是美股定期定股，讓你的投資遍地開花！</p>
+                                                    <p>免出門線上一次申辦台股及複委託帳戶，綁定既有帳戶即可扣款！輕鬆就能開始台股定期定額、美股定期定股，讓你的投資遍地開花！<br />
+                                                        證券服務係由國泰綜合證券提供，CUBE App由國泰世華銀行建置</p>
                                                 </article>
                                                 <a href="https://www.cathaybk.com.tw/cathaybk/personal/digital-service/intro/invest-manage/" target="_blank" class="more">More</a>
                                             </div>
@@ -498,22 +501,22 @@
                                         <div class="content-wrapper">
                                             <div class="list text-center">
                                                 <figure>
-                                                    <img data-src="./images/Insurance-img-1.webp" src="./images/Insurance-img-1.webp" alt="" class="lazy">
+                                                    <img data-src="./images/Insurance-big-img-1.png" src="./images/Insurance-big-img-1.png" alt="" class="lazy">
                                                 </figure>
                                                 <article class="text-left">
                                                     <h4 class="mb-3">查詢保單、保險新知、線上投保 </h4>
                                                     <h5 class="mb-3">管理風險，更能掌握未來</h5>
                                                     <div class="row">
                                                         <div class="col-sm-6 mb-5">
-                                                            <figure class="mb-3 mr-0">
-                                                                <img data-src="./images/Insurance-img-2.webp" src="./images/Insurance-img-2.webp" alt="" class="w-100 lazy">
+                                                            <figure class="mb-3">
+                                                                <img data-src="./images/Insurance-img-2.jpg" src="./images/Insurance-img-2.jpg" alt="" class="lazy">
                                                             </figure>
                                                             <h5>提醒應繳保費(僅壽險)</h5>
                                                             <p>常見6種幣別，金額係以下一繳款日當天需繳納之保險費總額</p>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <figure class="mb-3 mr-0">
-                                                                <img data-src="./images/Insurance-img-3.webp" src="./images/Insurance-img-3.webp" alt="" class="w-100 lazy">
+                                                            <figure class="mb-3">
+                                                                <img data-src="./images/Insurance-img-3.jpg" src="./images/Insurance-img-3.jpg" alt="" class="lazy">
                                                             </figure>
                                                             <h5>提醒即將到期(僅產險)</h5>
                                                             <p>引導至國泰產險續保</p>
@@ -552,7 +555,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12 container wow animate__fadeIn" data-wow-duration="2s">
-                            <h2 class="mb-5 text-center"><span class="text-gradient">CUBE App</span>一指開啟你的簡單生活</h2>
+                            <h2 class="mb-5 text-center"><span class="text-gradient mr-3">CUBE App</span>一指開啟你的簡單生活</h2>
                         </div>
                         <div class="col-12 wow animate__fadeIn"  data-wow-duration="2s">
                             <div class="swiper mySwiper py-5">

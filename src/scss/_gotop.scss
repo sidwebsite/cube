@@ -1,0 +1,44 @@
+#gotop {
+    width: 40px;
+    height: 40px;
+    background-color: rgba($black, 0.3);
+    border-radius: 50%;
+    color: $white;
+    transition: all .3s ease-in;
+    text-align: center;
+    position: fixed;
+    right: 15px;
+    bottom: 45px;
+    z-index: 999;
+    text-decoration: none;
+    &:hover {
+        background-color: rgba($black, 0.7);
+    }
+    > .material-symbols-outlined {
+        line-height: 40px;
+    }
+}
+/* Animations */
+.btnEntrance {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-name: btnEntrance;
+}
+
+/* fadeInUp */
+@keyframes btnEntrance {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.btnExit {
+    animation-duration: 0.25s;
+    animation-fill-mode: both;  
+    animation-name: btnExit;
+}

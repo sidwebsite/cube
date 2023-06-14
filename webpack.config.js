@@ -58,5 +58,6 @@ module.exports = {
         port: '4040',  
         open: true 
     },
-    mode:'development'
+    mode:'development',
+    devtool: 'cheap-module-source-map'
 };
