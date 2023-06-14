@@ -40,18 +40,21 @@ footer {
 }
 // 
 @include media-breakpoint-down(sm) {
-    footer .footer-links nav{
+    footer .footer-links nav {
         > ul {
             display: block;
             width: 100%;
             > li {
-            margin-right: 0px;
-            margin: {
-                bottom: 8px;
-            };
-            display: inline-block;
-            width: 49%;
+                margin-right: 0px;
+                margin: {
+                    bottom: 8px;
+                };
+                display: inline-block;
+                margin-right: 15px;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
         }
-    }            
-} 
+    }
 }

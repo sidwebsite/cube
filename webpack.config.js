@@ -62,7 +62,8 @@ module.exports = {
             filename: 'css/style.css?[hash:8]'
         }),
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/index.html',
+            // inject: 'body'
         }),
     ],
     devServer: {

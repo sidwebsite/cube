@@ -20,7 +20,8 @@
         position: relative;
         z-index: 10;
         text-align: center;
-        background-image: url('../images/Polygon9.svg');
+        // background-image: url('../images/Polygon9.svg');
+        @include backgroundImage('Polygon9.svg');
         background-repeat: no-repeat;
         background-position-x: center;
         background-position-y: 250px;
@@ -79,16 +80,9 @@
     bottom: 180px;
 	box-shadow: 0px 2px 50px rgba($black, 0.07);
     background-color: $white;
-    opacity: .2;
+    opacity: .15;
     z-index: 1;
-    &:nth-child(odd) {
-        top: -100%;
-        // animation: floatTopBottom 5s ease-in forwards;
-    }
-    &:nth-child(even) {
-        bottom: -100%;
-        // animation: floatBottomTop 5s ease-in forwards;
-    }
+    bottom: -100%;
     &:nth-child(5n + 1) {
         background-color: $light;        
     }

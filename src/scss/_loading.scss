@@ -50,3 +50,8 @@
         opacity: 0;
     }
 }
+@include media-breakpoint-down(sm) {
+    .loading .loading-logo .text {
+        margin-left: 0;
+    }
+}

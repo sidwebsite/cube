@@ -3,6 +3,8 @@
 document.addEventListener("DOMContentLoaded", ready);
 // let end = Date.now();
 // console.log(end - start);
+// gsap
+import { gsap } from "gsap";
 function ready() {
     // loader.classList.add('hidden');
     // document.body.classList.add('fade');
@@ -25,9 +27,7 @@ function ready() {
         opacity: 0,
         display: 'none',
         onComplete: function() {
-            TweenLite.delayedCall(0,function() {
-                document.querySelector('body').style.overflow = 'auto'
-            });
+            document.querySelector('body').style.overflow = 'auto';
         }
     });
     // banner
@@ -40,11 +40,7 @@ function ready() {
         opacity: 1,
         scale: 1
     })
-    .to ('.banner-box .block:nth-child(odd)',{        
-        duration: 2,
-        top: 0,
-    })
-    .to ('.banner-box .block:nth-child(even)',{
+    .to ('.banner-box .block',{
         duration: 2,
         bottom: 0,
     }, "<")
@@ -54,13 +50,14 @@ function ready() {
         opacity: 0,
     }, "<")
     .to ('.banner-title', {
-        duration: 1,
+        duration: 0.5,
         opacity: 1
-    }).to('.scroll-down',{
-        duration: 1,
+    }, "<").to('.scroll-down',{
+        delay: 0.2,
+        duration: 0.5,
         opacity: 1
-    }).to('.banner-text',{
-        duration: 1,
+    }, "<").to('.banner-text',{
+        duration: 0.5,
         opacity: 1
     });
 };
@@ -279,7 +276,7 @@ const w = container.clientWidth;
 
 console.log(window.innerWidth);
 if(window.innerWidth > 2000) {
-    for(let i = 0; i <= 8; i++ ) {
+    for(let i = 0; i <= 230; i++ ) {
         const blocks = document.createElement('div');
         blocks.classList.add('block');
         // blocks.style.top = Math.floor(Math.random() * h)+ 'px';
@@ -294,7 +291,7 @@ if(window.innerWidth > 2000) {
         blocks.classList.add('block');
         // blocks.style.top = Math.floor(Math.random() * h)+ 'px';
         blocks.style.left = Math.floor(Math.random() * 2000) + 'px';
-        blocks.style.width = (Math.floor(Math.random() * 60) + 30) + 'px';
+        blocks.style.width = (Math.floor(Math.random() * 40) + 20) + 'px';
         blocks.style.height = (Math.floor(Math.random() * 700) + 200) + 'px';
         container.appendChild(blocks);    
     }
