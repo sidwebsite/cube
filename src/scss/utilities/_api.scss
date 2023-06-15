@@ -1,3 +1,0 @@
-@each $key, $utility in $utilities {
-	@include generate-utility($utilities, $key, $grid-breakpoints);
-}
