@@ -1,7 +1,4 @@
-@import 'tabs';
-@import 'accordion';
-
-.li-wrapper {
+.li-body {
     height: 100%;
     position: relative;
     background-color: $white;
@@ -100,3 +97,6 @@
         line-height: 1.5rem;
     }
 }
+// tabs、accordion
+@import 'tabs';
+@import 'accordion';

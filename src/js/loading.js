@@ -27,7 +27,7 @@ function ready() {
         opacity: 0,
         display: 'none',
         onComplete: function() {
-            document.querySelector('body').style.overflow = 'auto';
+            document.querySelector('body').style.overflowY = 'auto';
         }
     });
     // banner
