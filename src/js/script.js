@@ -1,68 +1,6 @@
 // loading
-// let start = Date.now();
-document.addEventListener("DOMContentLoaded", ready);
-// let end = Date.now();
-// console.log(end - start);
-// gsap
-import { gsap } from "gsap";
-function ready() {
-    // loader.classList.add('hidden');
-    // document.body.classList.add('fade');
-    // animation
-	let tlBg = gsap.timeline({
-		paused: false,
-		defaults: { ease: "power4.out"}        
-	});
-    tlBg.to('.loading-logo .logo', {
-        delay: 0.5,
-        duration: 1,
-        opacity: 1
-    }).to('.loading-logo .text', {
-        duration: 1,
-        opacity: 1,
-        translateX: 0
-    }).to('#loading', {
-        delay:1,
-        duration: 1,
-        opacity: 0,
-        display: 'none',
-        onComplete: function() {
-            document.querySelector('body').style.overflow = 'auto';
-        }
-    });
-    // banner
-    tlBg.to ('.banner-box',{
-        duration: 0.5,
-        opacity: 1,
-    })
-    .to('.banner-logo', {
-        duration: 1,
-        opacity: 1,
-        scale: 1
-    })
-    .to ('.banner-box .block',{
-        duration: 2,
-        bottom: 0,
-    }, "<")
-    .to ('.banner-box',{
-        delay: 0.5,
-        duration: 1,
-        opacity: 0,
-    }, "<")
-    .to ('.banner-title', {
-        duration: 0.5,
-        opacity: 1
-    }, "<").to('.scroll-down',{
-        delay: 0.2,
-        duration: 0.5,
-        opacity: 1
-    }, "<").to('.banner-text',{
-        duration: 0.5,
-        opacity: 1
-    });
-};
-
-
+import loading from './loading';
+loading();
 // const lazyLoading = () => {
 //         const loader = document.querySelector("#loading");    
 //         loader.classList.add('hidden');
@@ -74,6 +12,7 @@ function ready() {
 //     loader.classList.add('hidden');
 //     document.body.classList.remove('overflow-hidden');
 // }); 
+
 // lazyLoadInit
 import lazyLoadInit from "./lazyload-init";
 lazyLoadInit();
@@ -101,13 +40,11 @@ document.body.addEventListener("click", (e) => {
         dropdownMenu.classList.remove("show");        
     }
 });
-// dropdownMenu.querySelectorAll('a')[1].addEventListener {
-
-// }
 // go top
-const backToTopButton = document.querySelector('#gotop');
+import goTop from './gotop';
+goTop();
 // header scroll
-const header = document.querySelector('.header');
+// const header = document.querySelector('.header');
 // nav
 const sectionId = document.querySelectorAll('.section-id');
 const navLinks = document.querySelectorAll('.dropdown-menu li');
@@ -119,11 +56,11 @@ const tabLeftNav = document.querySelector('.tab-left-nav');
 function scrollFunction() {
     let top = document.documentElement.scrollTop;
     //  header scroll
-    if (document.body.scrollTop > 20 || top > 20) {
-        header.classList.add('fixed');
-    } else {
-        header.classList.remove('fixed');
-    };
+    // if (document.body.scrollTop > 20 || top > 20) {
+    //     header.classList.add('fixed');
+    // } else {
+    //     header.classList.remove('fixed');
+    // };
     // nav
     sectionId.forEach((sec) => {
         let offset = sec.offsetTop;
@@ -155,24 +92,6 @@ function scrollFunction() {
     } else {
         tabLeftNav.classList.remove('active');
     }
-    // go top 
-    if(top > 300) {        
-        // show backToTopButton
-        if(!backToTopButton.classList.contains('btnEntrance')){
-            backToTopButton.classList.remove('btnExit')
-            backToTopButton.classList.add('btnEntrance')
-            backToTopButton.style.display = 'block'
-        };
-    } else {
-        // hide backToTopButton
-        if(backToTopButton.classList.contains('btnEntrance')) {
-            backToTopButton.classList.add('btnExit')
-            backToTopButton.classList.remove('btnEntrance')
-            setTimeout(() => {
-                backToTopButton.style.display = 'none'
-            }, 250);            
-        };
-    };
 }
 window.addEventListener('scroll', scrollFunction);
 // tabs
