@@ -4,8 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "webpack --mode development",
-    "depoply": "webpack --mode production",
+    "start": "webpack --mode development --devtool cheap-module-source-map",
+    "depoly": "webpack --mode production",
     "serve": "webpack serve"
   },
   "repository": {

@@ -8,6 +8,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: './js/main.js?[hash:8]',
+        clean: true
     },
     module: {
         rules: [
@@ -45,14 +46,14 @@ module.exports = {
                 options: {
                     sources: {
                         list: [
-                            "...", // important, to correctly handle the default tags like 'src'
                             {
                                 tag: "img",
                                 attribute: "data-src",
                                 type: "src",
                             },
                         ]
-                    }
+                    },
+                    minimize: false
                 }
             }
         ]
@@ -63,7 +64,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            // inject: 'body'
+            filename: 'index.html',
+            minify: false
         }),
     ],
     devServer: {
@@ -71,6 +73,4 @@ module.exports = {
         port: '4040',  
         open: true 
     },
-    mode:'development',
-    devtool: 'cheap-module-source-map'
 };
