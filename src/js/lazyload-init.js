@@ -29,7 +29,9 @@ const lazyLoadOptions = {
 };
 
 const createLazyLoadInstance = () => {
-	return new LazyLoad(lazyLoadOptions);
+	// return new LazyLoad(lazyLoadOptions);
+	const lazyLoadInstance = new LazyLoad(lazyLoadOptions);
+	lazyLoadInstance.update();
 };
 
 export default () => {

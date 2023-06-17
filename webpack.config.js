@@ -35,13 +35,18 @@ module.exports = {
             },
             {
                 test: /\.(png|jpe?g|gif|webp|svg|ico)$/i,
-                type: 'asset',
+                type: 'asset/resource',
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 1024
+                    }
+                },
                 generator: {
                     filename: 'images/[name][ext]'
                 }
             },
             {
-                test: /\.html$/,
+                test: /\.html$/i,
                 loader: 'html-loader',
                 options: {
                     sources: {
@@ -50,7 +55,7 @@ module.exports = {
                                 tag: "img",
                                 attribute: "data-src",
                                 type: "src",
-                            },
+                            }
                         ]
                     },
                     minimize: false
@@ -64,7 +69,6 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            filename: '[name].html',
             minify: false
         }),
     ],

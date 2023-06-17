@@ -219,7 +219,6 @@ if(window.innerWidth > 2000) {
 // Swiper
 import Swiper from 'swiper/bundle';
 const swiper = new Swiper(".mySwiper", {
-    lazy: true,
     pagination: {
         el: ".swiper-pagination",
         clickable: true,

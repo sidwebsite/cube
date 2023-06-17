@@ -21,12 +21,12 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-        > .li-wrapper {
+        > .li-body {
             > p {
-                // display: none;
+                display: none;
                 overflow: hidden;
                 height: 0;
-                transition: .3s ease-in .3s;
+                transition: height .3s ease-in .3s;
             }
         }
         .toggle-icon {
@@ -140,9 +140,9 @@
                 }
             }
             > p {
-                height: 50px;
-                transition: .3s ease-in;
-                // display: block;
+                height: 60px;
+                transition: height .3s ease-in;
+                display: block;
             }
         }
     }
