@@ -1,0 +1,282 @@
+// tabs
+.tab-nav {
+    // &:not(.server-nav-fixed ) {
+    //     // animation: serveNavOut .3s linear;
+
+    // }
+    ul {
+        display: flex;
+        gap: 30px;
+        padding: {
+            left: 30px;
+            right: 30px;
+        };
+        width: 100%;
+        li {
+            position: relative;
+            width: 100%;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            overflow: hidden;
+            margin-right: 30px;
+            &::before {
+                @include pseudos;
+                opacity: 0;
+                // transition: opacity .3s ease-in;
+                // background-image: url('../images/digital-cube-mb.webp');
+                @include backgroundImage('digital-cube-mb.webp');
+                background-position: top;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            cursor: pointer;
+            &:last-child {
+                margin-right: 0;
+            }
+            &:hover, &.active {
+                &::before {
+                    opacity: 1;
+                    // transition: opacity .3s ease-in;
+                }
+                > .li-wrapper {
+                    > h3 {
+                        &::before {
+                            width: 112px;
+                        }
+                        > .icon {
+                            &::before  {              
+                                opacity: 0;
+                                animation: tabFade .3s linear forwards;
+                            }
+                            &.icon1 { 
+                                &::before {
+                                    // background-image: url('../images/icon-hover-1.svg');
+                                    @include backgroundImage('icon-hover-1.svg');
+                                }
+                            }
+                            &.icon2 {  
+                                &::before {
+                                    // background-image: url('../images/icon-hover-2.svg');
+                                    @include backgroundImage('icon-hover-2.svg');
+                                }
+                            }
+                            &.icon3 { 
+                                &::before {
+                                    // background-image: url('../images/icon-hover-3.svg');
+                                    @include backgroundImage('icon-hover-3.svg');
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }            
+        }
+    }
+}
+// .tab-container {
+//     height: 300px;
+//     overflow-y: auto;
+//     overflow-x: hidden;
+// }
+.tab-content {
+    position: relative;
+    &::before {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        @include pseudos;
+        right: 30px;
+        opacity: 0.5;
+        // background-image: url('../images/digital-cube-mb.webp');
+        @include backgroundImage('digital-cube-mb.webp');
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .tab-pane {
+        display: none;
+        padding: 15px;
+        position: relative;       
+        transition: .3s ease-in;
+        // transform: translateY();
+        .content {
+            position: relative;
+            background-color: $white;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding-left: 30px;
+            > .list {
+                padding: {
+                    top: 45px;
+                    bottom: 45px;
+                };
+                margin: {
+                    right: 60px;
+                    left: 60px;
+                    bottom: 30px;
+                };
+                border-bottom: 1px solid $horizontal-line;
+                h5 {
+                    font-weight: 300;
+                }                
+                figure {
+                    display: block;
+                    overflow: hidden;
+                    width: 238px;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .more-warpper {
+                    margin: {
+                        top: 30px;
+                        left: 30px;
+                    };
+                    position: relative;                    
+                }
+                &:last-child {
+                    border: none;
+                }
+                &:nth-child(odd) .tebs-article {
+                    margin-left: 45px;
+                }
+                &:nth-child(even) .tebs-article {
+                    margin-right: 45px;
+                }
+            }
+        }
+        
+    }
+    > .active {
+        display: block;
+    }    
+    > .fade {
+        &:not(.show) {
+            opacity: 0;
+        }
+        opacity: 1;
+        // transition: opacity .3s linear;
+        animation: tabFade .3s linear forwards;
+    }
+}
+@keyframes tabFade {
+    0% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
+}
+.server-nav-fixed {
+    width: 100%;
+    position: fixed;
+    top: 70px;
+    z-index: 300;
+    > ul {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 45px;
+    }
+    animation: serveNav 0.3s linear forwards; 
+}
+@keyframes serveNav {
+    0% {
+        top: 0;
+    } 100% {
+        top: 70px;
+    }
+}
+.tab-left-nav {
+    position: fixed;
+    top: 20%;
+    right: 45px;
+    overflow: hidden;
+    background-color: $white;
+    z-index: 10;
+    box-shadow: 0 2px 7px rgba($black, 0.07);
+    width: 160px;
+    // right: -200px;
+    opacity: 0;
+    z-index: 100;
+    transition: all .3s ease-out;
+    > a {
+        display: block;
+        width: 100%;
+        padding: {
+            top: 8px;
+            bottom: 8px;
+            left: 8px;
+        };
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: $dark;
+        transition: .3s ease-in;
+        > .icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            position: relative;
+            margin-right: 8px;
+            &::before {
+                display: block;
+                @include pseudos;
+                // background-image: url('../images/icon-1.svg');
+                @include backgroundImage('icon-1.svg');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            &.icon2::before {
+                // background-image: url('../images/icon-2.svg');
+                @include backgroundImage('icon-2.svg');
+            }
+            &.icon3::before {
+                // background-image: url('../images/icon-3.svg');
+                @include backgroundImage('icon-3.svg');
+            }
+        }
+        &:hover, &.active {
+            color: $white;
+            background-image: $footer-gradient-vertical;
+            > .icon {
+                &::before {
+                    // background-image: url('../images/icon-hover-1.svg');
+                    @include backgroundImage('icon-hover-1.svg');
+                }                
+                &.icon2::before {
+                    // background-image: url('../images/icon-hover-2.svg');
+                    @include backgroundImage('icon-hover-2.svg');
+                }
+                &.icon3::before {
+                    // background-image: url('../images/icon-hover-3.svg');
+                    @include backgroundImage('icon-hover-3.svg');
+                }
+            }
+
+        }
+    }
+    &.active {
+        // right: 45px;
+        opacity: 1;
+        transition: all .3s ease-in;
+    }
+}
+@include media-breakpoint-down(xxl) {
+    .tab-left-nav.active {
+        right: 15px;
+    }
+}
+@include media-breakpoint-down(md) {
+    .tab-content .tab-pane .content > .list {
+        margin: {
+            left: 30px;
+            right: 30px;
+        };
+        &:nth-child(odd) .tebs-article {
+            margin-left: 30px;
+        }
+        &:nth-child(even) .tebs-article {
+            margin-right: 30px;
+        }
+    }
+}

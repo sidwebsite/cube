@@ -1,0 +1,14 @@
+.container {
+    max-width: $container-max-width;
+    @include container;
+}
+.container-fluid {
+    width: 100%;
+    @include container;
+}
+@each $key, $width  in $container-max-widths {
+        .container-#{$key} {
+        max-width: $width;
+        @include container;
+    }
+}
