@@ -218,17 +218,16 @@ if(window.innerWidth > 2000) {
 
 // Swiper
 import Swiper from 'swiper/bundle';
-const swiper = new Swiper(".mySwiper", {
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + "</span>";
-        }
-    },
-    centeredSlides: true,
+
+const swiper = new Swiper(".mySwiper", {    
+    spaceBetween: 30,
+    // centeredSlides: true,
     autoplay: {
         delay: 9000,
         disableOnInteraction: false,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true
     }
 });
